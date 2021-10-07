@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Calculator app</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body id="body">
+    <!-- Calculator Header -->
+    <header class="calc--heading">
+      <h1>calc</h1>
+      <div class="toggle-bar">
+        <p>theme</p>
+
+        <div class="toggle-section">
+          <p id="counter">1 2 3</p>
+          <div class="toggle" id="toggleField"><p id="toggle__ball"></p></div>
+        </div>
+      </div>
+    </header>
+    <!-- Input Field  Section-->
+    <section class="calc--input">
+      <input type="tel" id="number" class="calc--input__field" />
+    </section>
+
+    <!-- Keys Section -->
+    <section class="calc--keys" id="keysSection">
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button id="del">DEL</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>+</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>-</button>
+      <button>.</button>
+      <button>0</button>
+      <button>/</button>
+      <button>x</button>
+      <button id="reset">RESET</button>
+      <button id="equal">=</button>
+    </section>
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+    <script src="app.js"></script>
+  </body>
+</html>
