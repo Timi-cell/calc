@@ -63,7 +63,16 @@ const customStyles = {
 
 function backgroundOne() {
   //Variables
-  let body, toggleField, input, keysSection, buttons, del, reset, equal;
+  let body,
+    toggleField,
+    input,
+    keysSection,
+    buttons,
+    del,
+    reset,
+    equal,
+    footer,
+    footerLink;
   body = document.getElementById("body");
   body.style.background = customStyles.bg1.__bg1_color_one;
   body.style.color = customStyles.__text_white;
@@ -87,6 +96,8 @@ function backgroundOne() {
   del = document.getElementById("del");
   reset = document.getElementById("reset");
   equal = document.getElementById("equal");
+  footer = document.getElementById("footer");
+  footerLink = document.getElementsByClassName("link");
   del.style.background = customStyles.bg1.__bg1_key_bg;
   del.style.color = customStyles.__text_white;
   del.style.boxShadow = `0px 4px 0px 2px ${customStyles.bg1.__bg1_key_shadow}`;
@@ -96,11 +107,23 @@ function backgroundOne() {
   equal.style.color = customStyles.__text_white;
   equal.style.background = customStyles.bg1.__bg1_toggleandkeybg_red;
   equal.style.boxShadow = `0px 4px 0px 2px ${customStyles.bg1.__bg1_keyred_shadow}`;
+  footer.style.color = customStyles.__text_white;
+  for (let link of footerLink)
+    link.style.color = customStyles.bg1.__bg1_toggleandkeybg_red;
 }
 
 function backgroundTwo() {
   //Variables
-  let body, toggleField, input, keysSection, buttons, del, reset, equal;
+  let body,
+    toggleField,
+    input,
+    keysSection,
+    buttons,
+    del,
+    reset,
+    equal,
+    footer,
+    footerLink;
   body = document.getElementById("body");
   body.style.background = customStyles.bg2.__bg2_color_one;
   body.style.color = customStyles.bg2.__bg2_key_text;
@@ -123,6 +146,8 @@ function backgroundTwo() {
   del = document.getElementById("del");
   reset = document.getElementById("reset");
   equal = document.getElementById("equal");
+  footer = document.getElementById("footer");
+  footerLink = document.getElementsByClassName("link");
   del.style.background = customStyles.bg2.__bg2_key_bg;
   del.style.color = customStyles.__text_white;
   del.style.boxShadow = `0px 4px 0px 2px ${customStyles.bg2.__bg2_keycyan_shadow}`;
@@ -132,11 +157,23 @@ function backgroundTwo() {
   equal.style.color = customStyles.__text_white;
   equal.style.background = customStyles.bg2.__bg2_toggleandkeybg_orange;
   equal.style.boxShadow = `0px 4px 0px 2px ${customStyles.bg2.__bg2_keyshadow_orange}`;
+  footer.style.color = "#000";
+  for (let link of footerLink)
+    link.style.color = customStyles.bg2.__bg2_toggleandkeybg_orange;
 }
 
 function backgroundThree() {
   //Variables
-  let body, toggleField, input, keysSection, buttons, del, reset, equal;
+  let body,
+    toggleField,
+    input,
+    keysSection,
+    buttons,
+    del,
+    reset,
+    equal,
+    footer,
+    footerLink;
   body = document.getElementById("body");
   body.style.background = customStyles.bg3.__bg3_color_one;
   body.style.color = customStyles.bg3.__bg3_text;
@@ -159,6 +196,8 @@ function backgroundThree() {
   del = document.getElementById("del");
   reset = document.getElementById("reset");
   equal = document.getElementById("equal");
+  footer = document.getElementById("footer");
+  footerLink = document.getElementsByClassName("link");
   del.style.background = customStyles.bg3.__bg3_darkviolet;
   del.style.color = customStyles.__text_white;
   reset.style.background = customStyles.bg3.__bg3_darkviolet;
@@ -166,7 +205,36 @@ function backgroundThree() {
   equal.style.color = customStyles.bg3.__bg3_darkblue_text;
   equal.style.background = customStyles.bg3.__bg3_purecyan;
   equal.style.boxShadow = `0px 4px 0px 2px ${customStyles.bg3.__bg3_cyanshadow}`;
+  footer.style.color = customStyles.__text_white;
+  for (let link of footerLink) link.style.color = customStyles.bg3.__bg3_text;
 }
 
-// Implementation of the calculation using the CALCULATOR
-//TODO:
+// Implementation of the calculation events by the CALCULATOR
+
+// All Number Buttons
+
+let allButtons = document.querySelectorAll(".numButton");
+let inputField = document.querySelector("#number");
+for (let button of allButtons) {
+  button.addEventListener("click", () => {
+    inputField.value += button.textContent;
+  });
+}
+
+// The Delete button
+let deleteButton = document.querySelector("#del");
+deleteButton.addEventListener("click", () => {
+  inputField.value = inputField.value.slice(0, -1);
+});
+
+// The Reset button
+let resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", () => {
+  inputField.value = "";
+});
+
+// The Equal Button
+let equalButton = document.querySelector("#equal");
+equalButton.addEventListener("click", () => {
+  inputField.value = eval(inputField.value);
+});
