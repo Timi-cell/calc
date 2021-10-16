@@ -219,24 +219,21 @@ let inputField = document.querySelector("#number");
 for (let button of numberButtons) {
   button.addEventListener("click", () => {
     inputField.value += button.textContent;
-    inputField.focus();
   });
 }
 
-// The calculations with the signs
+
 
 // The Delete button
 let deleteButton = document.querySelector("#del");
 deleteButton.addEventListener("click", () => {
   inputField.value = inputField.value.slice(0, -1);
-  inputField.focus();
 });
 
 // The Reset button
 let resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", () => {
   inputField.value = "";
-  inputField.focus();
 });
 
 // The Equal Button
@@ -253,7 +250,6 @@ document.addEventListener("keypress", (event) => {
 function calc() {
   if (inputField.value === "") {
     inputField.value = new EvalError();
-    inputField.focus();
   } else if (inputField.value.length > 20) {
     inputField.value = new Error("Stack Error");
   } else {
