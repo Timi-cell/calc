@@ -242,7 +242,15 @@ resetButton.addEventListener("click", () => {
 // The Equal Button
 let equalButton = document.querySelector("#equal");
 
-equalButton.addEventListener("click", () => {
+equalButton.addEventListener("click", calc);
+
+document.addEventListener("keypress", (event) => {
+  if (event.keycode === 13 || event.which === 13) {
+    calc();
+  }
+});
+
+function calc() {
   if (inputField.value === "") {
     inputField.value = new EvalError();
     inputField.focus();
@@ -251,4 +259,4 @@ equalButton.addEventListener("click", () => {
   } else {
     inputField.value = eval(inputField.value);
   }
-});
+}
