@@ -209,32 +209,46 @@ function backgroundThree() {
   for (let link of footerLink) link.style.color = customStyles.bg3.__bg3_text;
 }
 
-// Implementation of the calculation events by the CALCULATOR
+//  Implementation of the calculation events by the CALCULATOR
 
-// All Number Buttons
+// // All Number Buttons
 
-let allButtons = document.querySelectorAll(".numButton");
+let numberButtons = document.getElementsByClassName("number");
+
 let inputField = document.querySelector("#number");
-for (let button of allButtons) {
+for (let button of numberButtons) {
   button.addEventListener("click", () => {
     inputField.value += button.textContent;
+    inputField.focus();
   });
 }
+
+// The calculations with the signs
 
 // The Delete button
 let deleteButton = document.querySelector("#del");
 deleteButton.addEventListener("click", () => {
   inputField.value = inputField.value.slice(0, -1);
+  inputField.focus();
 });
 
 // The Reset button
 let resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", () => {
   inputField.value = "";
+  inputField.focus();
 });
 
 // The Equal Button
 let equalButton = document.querySelector("#equal");
+
 equalButton.addEventListener("click", () => {
-  inputField.value = eval(inputField.value);
+  if (inputField.value === "") {
+    inputField.value = new EvalError();
+    inputField.focus();
+  } else if (inputField.value.length > 20) {
+    inputField.value = new Error("Stack Error");
+  } else {
+    inputField.value = eval(inputField.value);
+  }
 });
